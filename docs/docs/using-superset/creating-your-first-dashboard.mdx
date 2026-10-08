@@ -219,6 +219,29 @@ requests and errors, each error appears alongside the reported requests.
 
 View query for regular dataset charts is unchanged.
 
+### Date range filter
+
+The **Date range filter** is a native filter that shows a plain calendar range picker. Use it when
+dashboard viewers only need to pick a start and end date, without the tabs, relative ranges, or
+time-of-day options of the **Time range** filter.
+
+To add one:
+
+1. Open the dashboard, click the **⋮** (more options) menu, and select **Edit dashboard**.
+2. Open the Filter Bar and click **+ Add/Edit Filters**.
+3. Add a new filter and set **Filter type** to **Date range filter**.
+4. Configure the scope and, optionally, **Filter value is required**, then click **Save**.
+
+Things to know:
+
+- The filter only produces absolute calendar dates (`YYYY-MM-DD`). A selection such as the last 30 days
+  is stored as those specific dates and does not roll forward. For rolling ranges, use the
+  **Time range** filter.
+- Both the start and end dates are included in the results. Selecting 1 Jan to 31 Jan includes all of
+  31 Jan.
+- It applies to the time column of the charts in its scope, the same way the **Time range** filter does.
+- It can also be used as a dashboard filter in Alerts & Reports.
+
 ### Creating charts in Explore view
 
 Superset has 2 main interfaces for exploring data:
