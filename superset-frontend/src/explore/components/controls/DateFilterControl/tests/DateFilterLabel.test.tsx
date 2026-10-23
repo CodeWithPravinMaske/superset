@@ -254,3 +254,19 @@ test('hovering the description icon does not show the date range tooltip', async
   fireEvent.keyDown(descriptionIcon, { key: 'Enter' });
   expect(tooltipOnClick).toHaveBeenCalled();
 });
+
+test('a fixed whole-day range opens in the Calendar range type with its dates, end date included', async () => {
+  render(setup({ ...defaultProps, value: '2021-03-16 : 2021-03-18' }));
+
+  await userEvent.click(await screen.findByRole('button'));
+
+  expect(
+    await screen.findByText('Configure Time Range: Calendar...'),
+  ).toBeInTheDocument();
+  expect(screen.getByTitle('Calendar')).toBeInTheDocument();
+  expect(screen.getByPlaceholderText('Start date')).toHaveValue('2021-03-16');
+  expect(screen.getByPlaceholderText('End date')).toHaveValue('2021-03-17');
+  expect(
+    screen.queryByText('Configure Advanced Time Range'),
+  ).not.toBeInTheDocument();
+});

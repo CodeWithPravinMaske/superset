@@ -18,6 +18,7 @@
  */
 import { RefObject } from 'react';
 import {
+  AppSection,
   Behavior,
   DataRecord,
   FilterState,
@@ -27,6 +28,7 @@ import { PluginFilterHooks, PluginFilterStylesProps } from '../types';
 
 interface PluginFilterTimeCustomizeProps {
   defaultValue?: string | null;
+  calendarPicker?: boolean;
 }
 
 export type PluginFilterSelectQueryFormData = QueryFormData &
@@ -40,8 +42,10 @@ export type PluginFilterTimeProps = PluginFilterStylesProps & {
   filterState: FilterState;
   inputRef: RefObject<HTMLInputElement>;
   isOverflowingFilterBar?: boolean;
+  appSection?: AppSection;
 } & PluginFilterHooks;
 
 export const DEFAULT_FORM_DATA: PluginFilterTimeCustomizeProps = {
   defaultValue: null,
+  calendarPicker: false,
 };
